@@ -20,10 +20,10 @@
 include:
   # keyboard: cradio sweep
   - board: rpi_pico
-    shield: kin36_left
+    shield: kin36_sweep36key_left
     snippet: studio-rpc-usb-uart
     #snippet: zmk-usb-logging
   - board: rpi_pico
-    shield: kin36_right
+    shield: kin36_sweep36key_right
   - board: rpi_pico
     shield: settings_reset
