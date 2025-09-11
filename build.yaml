@@ -21,7 +21,7 @@ include:
   # keyboard: cradio sweep
   - board: sparkfun_pro_micro_rp2040
     shield: kin36_sweep36key_left
-    snippet: studio-rpc-usb-uart
+    #snippet: studio-rpc-usb-uart
     #snippet: zmk-usb-logging
   - board: sparkfun_pro_micro_rp2040
     shield: kin36_sweep36key_right
