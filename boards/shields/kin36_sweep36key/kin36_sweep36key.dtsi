@@ -10,7 +10,20 @@
 / {
     chosen {
         zmk,kscan = &kscan0;
+        zmk,split = &wired_split;
     };
+
+	wired_split: wired-split {
+		compatible = "zmk,split-serial-half-duplex"; // <- This is the key!
+		uart = &uart0;           // Use the RP2040's UART0 peripheral
+		// Define the SINGLE data pin for the CENTRAL half
+		data-pin = <10>;          // e.g., Use GP1 for both TX and RX
+	};
+
+	uart_half: uart-half-duplex {
+		compatible = "zmk,uart-half-duplex";
+		drive-mode-gpios = <&gpio0 10 GPIO_ACTIVE_HIGH>; // Must match data-pin above
+	};
 
     default_transform: keymap_transform_0 {
         compatible = "zmk,matrix-transform";
@@ -99,4 +112,12 @@
             ;
     };
 
+};
+
+&uart0 {
+	status = "okay";
+	current-speed = <115200>;
+	// Notice we only define TX pin. The half-duplex driver handles switching.
+	tx-pin = <10>; // This MUST match the data-pin above (GP1)
+	// rx-pin is NOT defined here for half-duplex.
 };
