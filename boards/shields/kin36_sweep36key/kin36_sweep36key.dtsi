@@ -117,7 +117,6 @@
 &uart0 {
 	status = "okay";
 	current-speed = <115200>;
-	// Notice we only define TX pin. The half-duplex driver handles switching.
-	tx-pin = <10>; // This MUST match the data-pin above (GP1)
-	// rx-pin is NOT defined here for half-duplex.
+    pinctrl-names = "default";
+    pinctrl-0 = <&uart0_tx_pa10>;
 };
