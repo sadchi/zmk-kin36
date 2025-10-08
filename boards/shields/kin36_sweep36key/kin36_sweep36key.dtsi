@@ -113,7 +113,7 @@
 &pinctrl {
     uart0_default_gpio10: uart0_default_gpio10 {
         group1 {
-            pinmux = <PIO0_10_U0TX>;  // GPIO10 как UART TX для half-duplex
+            pinmux = <GPIO0_10_U0TX>;  
             input-enable;
             output-enable;
             bias-pull-up;
