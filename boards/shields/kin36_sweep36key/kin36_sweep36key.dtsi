@@ -113,7 +113,7 @@
 &pinctrl {
     uart0_default_gpio10: uart0_default_gpio10 {
         group1 {
-            pinmux = <10>;  
+            pinmux = <0x0A>;  
             input-enable;
             output-enable;
             bias-pull-up;
